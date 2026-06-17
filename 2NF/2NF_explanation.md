@@ -60,3 +60,7 @@ The design is now in **Second Normal Form (2NF)** because:
    - All other composite key tables either had no non-key attributes or their non-key attributes depended on the **entire** composite key.
 
 Therefore, every non-key attribute now depends on the **whole** primary key (or composite key), satisfying the requirements of 2NF.
+
+## Correction: rows accidentally dropped during decomposition
+
+When `SupervisorName` was removed from `project_workers_1NF` to resolve the partial dependency, two valid `(ProjectID, WorkerName)` rows were accidentally deleted along with the column: `P004,Mike Ross` and `P006,Mike Ross`. Removing a column must never remove rows — decomposition has to be lossless. Both rows have been restored in `project_workers_2NF.csv` (and propagated to `project_workers_3NF.csv`), so `project_workers_2NF` now has the same 15 worker-assignment rows as `project_workers_1NF`, just without the `SupervisorName` column.
