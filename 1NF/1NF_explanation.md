@@ -79,6 +79,8 @@ No cell now contains `|`.
 
 `project_equipment_1NF.csv` originally had two exact duplicate rows under the key `(ProjectID, Equipment)`: `P004,Lift,2000` and `P007,Excavator,4200` each appeared twice. This broke the 1NF requirement that each row be uniquely identified, so the duplicates were removed (no data lost — the repeated rows held identical values). Propagated through `2NF/project_equipment_2NF.csv` and `3NF/project_equipment_3NF.csv` as well.
 
+`workers_skills_1NF.csv` and `workers_certifications_1NF.csv` also had many exact duplicate `(WorkerName, Skill)` / `(WorkerName, Certification)` rows (e.g. `Tom Hardy,Welding` appeared 3 times, `Mike Ross,Framing` appeared twice). These also broke the 1NF uniqueness requirement and were deduplicated down to one row per distinct pair, with no data lost. Propagated through the corresponding `2NF` and `3NF` files as well.
+
 ## Notes for 2NF Teammate
 
 Tables with **composite keys** (check for partial dependencies):
