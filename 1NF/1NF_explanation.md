@@ -73,6 +73,7 @@ No cell now contains `|`.
  `project_workers_1NF.ProjectID` → `projects_1NF.ProjectID`
  `project_workers_1NF.WorkerName` → `workers_1NF.WorkerName`
  `project_workers_1NF.SupervisorName` → `supervisors_1NF.SupervisorName`
+ `projects_1NF.ClientName` → `clients_1NF.ClientName`
 
 
 ## Correction: duplicate rows removed
@@ -100,3 +101,11 @@ Single-key tables are already in 2NF:
 ## Notes for 3NF Teammate
 
 Look for **transitive dependencies** (non-key → non-key) in all tables.
+
+## Corrections applied during BCNF review (Group 13)
+
+Three issues were found when validating 1NF against the raw CSV and fixed across all stages:
+
+1. **`workers_skills_1NF.csv`** — missing `Tom Hardy, Concrete` (from raw row P006).
+2. **`clients_1NF.csv`** — `Pacific Materials` and `Southern Concrete` are suppliers in the raw file, not clients. Removed; only the 4 real clients remain.
+3. **`projects_1NF.csv`** — `ClientName` was missing. Added as a column so each project links to its client (e.g. P001 → Metro Corp).

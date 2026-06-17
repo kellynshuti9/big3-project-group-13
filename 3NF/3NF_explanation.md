@@ -31,7 +31,7 @@ In `projects_2NF`, the non-key attribute `SiteCity` determines the non-key attri
 
 | Table | Primary Key | Foreign Key(s) |
 |-------|-------------|-----------------|
-| `projects_3NF` | ProjectID | SiteCity -> site_locations_3NF.SiteCity, SupervisorName -> supervisors_3NF.SupervisorName |
+| `projects_3NF` | ProjectID | SiteCity -> site_locations_3NF.SiteCity, ClientName -> clients_3NF.ClientName, SupervisorName -> supervisors_3NF.SupervisorName |
 | `site_locations_3NF` | SiteCity | - |
 | `clients_3NF` | ClientName | - |
 | `supervisors_3NF` | SupervisorName | - |
@@ -58,4 +58,4 @@ Therefore every non-key column is now directly (and only) dependent on the whole
 
 ## Note on data quality (carried forward from earlier stages)
 
-`clients_3NF.csv` has no foreign key linking it to `projects_3NF`. This was already the case in 1NF/2NF — the dataset, as split by the team, never recorded which client owns which project. We also noticed `Pacific Materials` and `Southern Concrete` appear with identical phone/city data in both `clients_3NF.csv` and `suppliers_3NF.csv`, suggesting these two records may have been suppliers misclassified as clients in the original raw file. We did not alter this data since it was inherited from the 1NF/2NF stages already submitted by the group; this is flagged here for the group's review before final BCNF/4NF/PDF write-up.
+`clients_3NF.csv` now correctly lists only the four clients that appear in the raw file (`Metro Corp`, `City Transit Auth`, `Retail Ventures`, `FutureTech Ltd`). `Pacific Materials` and `Southern Concrete` were removed — they are suppliers only. `ClientName` was added to `projects_3NF` as a foreign key to preserve the project–client relationship from the raw data.

@@ -1,15 +1,16 @@
 WorkerName,Skill
-Mike Ross,Carpentry
-Mike Ross,Framing
-Rachel Zane,Electrical
-Rachel Zane,Wiring
-Harvey Specter,Project Management
+Harvey Specter,Management
 Harvey Specter,Planning
-Tom Hardy,Welding
-Tom Hardy,Steel Fixing
+Harvey Specter,Project Management
 Louis Litt,Accounting
 Louis Litt,Procurement
+Mike Ross,Carpentry
 Mike Ross,Concrete
-Tom Hardy,Carpentry
+Mike Ross,Framing
+Rachel Zane,Electrical
 Rachel Zane,Inspection
-Harvey Specter,Management
+Rachel Zane,Wiring
+Tom Hardy,Carpentry
+Tom Hardy,Concrete
+Tom Hardy,Steel Fixing
+Tom Hardy,Welding
