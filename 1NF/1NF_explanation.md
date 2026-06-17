@@ -75,6 +75,10 @@ No cell now contains `|`.
  `project_workers_1NF.SupervisorName` → `supervisors_1NF.SupervisorName`
 
 
+## Correction: duplicate rows removed
+
+`project_equipment_1NF.csv` originally had two exact duplicate rows under the key `(ProjectID, Equipment)`: `P004,Lift,2000` and `P007,Excavator,4200` each appeared twice. This broke the 1NF requirement that each row be uniquely identified, so the duplicates were removed (no data lost — the repeated rows held identical values). Propagated through `2NF/project_equipment_2NF.csv` and `3NF/project_equipment_3NF.csv` as well.
+
 ## Notes for 2NF Teammate
 
 Tables with **composite keys** (check for partial dependencies):
